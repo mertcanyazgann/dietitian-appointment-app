@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   CalendarCheck2,
@@ -8,7 +9,6 @@ import {
   HeartPulse,
   Mail,
   MapPin,
-  Menu,
   Phone,
   ShieldCheck,
   Sparkles,
@@ -16,9 +16,10 @@ import {
   Salad,
   Scale,
   ChevronRight,
+  Menu,
   X,
 } from "lucide-react";
-import AppointmentRequestForm from "@/components/public/AppointmentRequestForm";
+import { useEffect, useState } from "react";
 
 const stats = [
   { value: "Online", label: "Görüşme seçeneği" },
@@ -120,12 +121,12 @@ export default function HomePage() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <a
-              href="#randevu"
+            <Link
+              href="/randevu"
               className="hidden rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800 lg:inline-flex"
             >
               Randevu Al
-            </a>
+            </Link>
 
             <button
               type="button"
@@ -144,13 +145,13 @@ export default function HomePage() {
               <a href="#hizmetler" onClick={() => setMobileMenuOpen(false)}>Hizmetler</a>
               <a href="#surec" onClick={() => setMobileMenuOpen(false)}>Süreç</a>
               <a href="#iletisim" onClick={() => setMobileMenuOpen(false)}>İletişim</a>
-              <a
-                href="#randevu"
+              <Link
+                href="/randevu"
                 onClick={() => setMobileMenuOpen(false)}
                 className="mt-2 inline-flex justify-center rounded-full bg-emerald-600 px-5 py-3 font-medium text-white"
               >
                 Randevu Al
-              </a>
+              </Link>
             </div>
           </div>
         )}
@@ -172,12 +173,12 @@ export default function HomePage() {
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#randevu"
+              <Link
+                href="/randevu"
                 className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-6 py-4 font-medium text-white transition hover:bg-emerald-700"
               >
                 Hemen Randevu Al <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              </Link>
               <a
                 href="#hakkimda"
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 font-medium text-slate-700 transition hover:bg-slate-50"
@@ -196,35 +197,50 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="section-reveal relative">
-            <div className="absolute inset-0 -z-10 rounded-[36px] bg-gradient-to-br from-emerald-200/50 to-lime-100/40 blur-3xl" />
-            <div className="rounded-[36px] border border-white/70 bg-white/90 p-6 shadow-2xl shadow-slate-200/70">
-              <div className="rounded-[28px] bg-slate-900 p-7 text-white">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.24em] text-emerald-300">
-                      Danışmanlık süreci
-                    </p>
-                    <h2 className="mt-3 text-2xl font-semibold leading-tight">
-                      Basit, güvenli ve planlı randevu deneyimi
-                    </h2>
-                  </div>
-                  <HeartPulse className="h-10 w-10 text-emerald-300" />
-                </div>
+          <div className="section-reveal grid gap-5">
+            <div className="relative overflow-hidden rounded-[34px] border border-white/70 bg-white shadow-2xl shadow-slate-200/70">
+              <div className="relative h-[420px] w-full">
+                <Image
+                  src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80"
+                  alt="Sağlıklı beslenme danışmanlığı"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/55 via-slate-900/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-7 text-white">
+                <p className="text-sm uppercase tracking-[0.2em] text-emerald-200">
+                  Sağlıklı yaşam
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold">
+                  Gerçek hayata uyumlu bir beslenme sistemi
+                </h2>
+              </div>
+            </div>
 
-                <div className="mt-6 grid gap-3">
-                  {benefits.map((item) => (
-                    <div
-                      key={item}
-                      className="rounded-2xl bg-white/5 px-4 py-4 transition hover:bg-white/10"
-                    >
-                      <div className="flex items-start gap-3">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 text-emerald-300" />
-                        <span className="text-sm text-slate-200">{item}</span>
-                      </div>
-                    </div>
-                  ))}
+            <div className="rounded-[28px] bg-slate-900 p-7 text-white shadow-xl">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.24em] text-emerald-300">
+                    Danışmanlık süreci
+                  </p>
+                  <h2 className="mt-3 text-2xl font-semibold leading-tight">
+                    Basit, güvenli ve planlı randevu deneyimi
+                  </h2>
                 </div>
+                <HeartPulse className="h-10 w-10 text-emerald-300" />
+              </div>
+
+              <div className="mt-6 grid gap-3">
+                {benefits.map((item) => (
+                  <div key={item} className="rounded-2xl bg-white/5 px-4 py-4 transition hover:bg-white/10">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 text-emerald-300" />
+                      <span className="text-sm text-slate-200">{item}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -323,35 +339,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="randevu" className="container-site section-reveal py-10 lg:py-16">
-        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-          <div className="rounded-[34px] bg-slate-900 p-8 text-white lg:p-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-300">
-              Randevu Al
-            </p>
-            <h3 className="mt-4 text-3xl font-semibold leading-tight">
-              Hemen talebinizi oluşturun, uygun görüşme planınızı birlikte netleştirelim.
-            </h3>
-            <p className="mt-5 leading-8 text-slate-300">
-              Online veya yüz yüze görüşme seçeneğiyle, size uygun tarih ve saat için hızlıca talep oluşturabilirsiniz.
-              Talebiniz admin paneline düşer ve onay sonrası randevunuz planlanır.
-            </p>
-
-            <div className="mt-8 grid gap-4">
-              {[
-                { Icon: CalendarCheck2, label: "Online ve yüz yüze görüşme seçeneği" },
-                { Icon: ShieldCheck, label: "Admin onaylı ve kontrollü randevu süreci" },
-              ].map((item) => (
-                <div key={item.label} className="flex items-start gap-3 rounded-2xl bg-white/5 px-4 py-4">
-                  <item.Icon className="mt-0.5 h-5 w-5 text-emerald-300" />
-                  <span className="text-sm text-slate-200">{item.label}</span>
-                </div>
-              ))}
+      <section className="container-site section-reveal py-10 lg:py-16">
+        <div className="overflow-hidden rounded-[34px] border border-black/5 bg-white shadow-sm">
+          <div className="grid lg:grid-cols-2">
+            <div className="relative min-h-[320px]">
+              <Image
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80"
+                alt="Sağlıklı tabaklar"
+                fill
+                className="object-cover"
+              />
             </div>
-          </div>
-
-          <div className="form-shell p-3">
-            <AppointmentRequestForm />
+            <div className="flex flex-col justify-center p-8 lg:p-12">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700">
+                Kişisel yaklaşım
+              </p>
+              <h3 className="mt-4 text-3xl font-semibold leading-tight text-slate-900">
+                Her danışan için aynı değil, size özel bir süreç
+              </h3>
+              <p className="mt-5 leading-8 text-slate-600">
+                Beslenme programı; günlük yaşam temponuz, hedefiniz, çalışma düzeniniz ve sürdürülebilirlik ihtiyacınız dikkate alınarak oluşturulur.
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/randevu"
+                  className="inline-flex items-center rounded-full bg-emerald-600 px-6 py-4 font-medium text-white transition hover:bg-emerald-700"
+                >
+                  Randevu Sayfasına Git <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -375,9 +392,9 @@ export default function HomePage() {
       <footer className="border-t border-black/5 bg-white">
         <div className="container-site flex flex-col gap-3 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
           <p>© 2026 Dyt. Ayşe Bozkaya Yazgan — Tüm hakları saklıdır.</p>
-          <a href="#randevu" className="font-medium text-emerald-700 transition hover:text-emerald-800">
+          <Link href="/randevu" className="font-medium text-emerald-700 transition hover:text-emerald-800">
             Randevu Al
-          </a>
+          </Link>
         </div>
       </footer>
     </main>
