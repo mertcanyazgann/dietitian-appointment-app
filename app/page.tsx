@@ -307,23 +307,23 @@ export default function HomePage() {
       </section>
 
       <section id="iletisim" className="mx-auto max-w-7xl px-6 py-20">
-        <div className="grid gap-6 lg:grid-cols-3">
-          {[
-            [Phone, "Telefon", "+90 5xx xxx xx xx"],
-            [Mail, "E-posta", "randevu@ornek.com"],
-            [MapPin, "Adres", "Bursa / Türkiye"],
-          ].map(([Icon, title, text]) => (
-            <div
-              key={title}
-              className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-            >
-              <Icon className="h-6 w-6 text-emerald-600" />
-              <h4 className="mt-4 font-semibold text-slate-900">{title}</h4>
-              <p className="mt-2 text-slate-600">{text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+  <div className="grid gap-6 lg:grid-cols-3">
+    {[
+      { Icon: Phone, title: "Telefon", text: "+90 5xx xxx xx xx" },
+      { Icon: Mail, title: "E-posta", text: "randevu@ornek.com" },
+      { Icon: MapPin, title: "Adres", text: "Bursa / Türkiye" },
+    ].map(({ Icon, title, text }) => (
+      <div
+        key={title}
+        className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+      >
+        <Icon className="h-6 w-6 text-emerald-600" />
+        <h4 className="mt-4 font-semibold text-slate-900">{title}</h4>
+        <p className="mt-2 text-slate-600">{text}</p>
+      </div>
+    ))}
+  </div>
+</section>
 
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
