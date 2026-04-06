@@ -1,380 +1,297 @@
+import React from "react";
 import {
-  HeartPulse,
+  ArrowRight,
   CalendarCheck2,
-  ShieldCheck,
-  Phone,
+  CheckCircle2,
+  HeartPulse,
   Mail,
   MapPin,
-  CheckCircle2,
-  ArrowRight,
-  Apple,
+  Phone,
+  ShieldCheck,
+  Sparkles,
+  Activity,
   Salad,
-  ActivitySquare,
-  MessageCircleHeart,
+  Scale,
+  ChevronRight,
 } from "lucide-react";
 import AppointmentRequestForm from "@/components/public/AppointmentRequestForm";
 
-const heroCards = [
-  { title: "Online Görüşme", text: "Uzaktan danışmanlık desteği" },
-  { title: "Yüz Yüze", text: "Planlı bireysel görüşmeler" },
-  { title: "Kişiye Özel", text: "Yaşam tarzına uygun programlar" },
-];
-
-const featureCards = [
-  {
-    Icon: Apple,
-    title: "Kilo Yönetimi",
-    text: "Sürdürülebilir ve dengeli planlama",
-  },
-  {
-    Icon: ActivitySquare,
-    title: "Sporcu Beslenmesi",
-    text: "Performans odaklı yaklaşım",
-  },
-  {
-    Icon: Salad,
-    title: "Sağlıklı Beslenme",
-    text: "Günlük yaşama uyumlu düzen",
-  },
-  {
-    Icon: MessageCircleHeart,
-    title: "Takip Süreci",
-    text: "Düzenli kontrol ve yönlendirme",
-  },
-];
-
-const firstMeetingSteps = [
-  "Randevu talebi oluşturulur",
-  "Uygun tarih ve saat değerlendirilir",
-  "İlk görüşme planlanır",
-  "Kişiye özel beslenme süreci başlatılır",
-];
-
-const aboutCards = [
-  {
-    title: "Bireysel danışmanlık",
-    text: "Her danışan için farklı ihtiyaç analizi",
-  },
-  {
-    title: "Takip ve değerlendirme",
-    text: "Sürece göre güncellenen planlama",
-  },
-  {
-    title: "Online ve yüz yüze seçenek",
-    text: "Esnek görüşme modeli",
-  },
-  {
-    title: "Ulaşılabilir süreç",
-    text: "Anlaşılır, gerçekçi ve uygulanabilir sistem",
-  },
+const stats = [
+  { value: "Online", label: "Görüşme seçeneği" },
+  { value: "Yüz yüze", label: "Bireysel destek" },
+  { value: "Kişiye özel", label: "Beslenme planı" },
 ];
 
 const services = [
-  "Kilo alma / verme danışmanlığı",
-  "Sporcu beslenmesi",
-  "Sağlıklı yaşam ve sürdürülebilir beslenme",
-  "Online beslenme danışmanlığı",
-];
-
-const processSteps = [
   {
-    step: "1",
-    title: "Randevu talebi",
-    text: "Sitedeki form üzerinden talep bırakılır.",
+    icon: Scale,
+    title: "Kilo Yönetimi",
+    text: "Sürdürülebilir kilo alma ve verme süreci için kişisel planlama.",
   },
   {
-    step: "2",
-    title: "Uygunluk kontrolü",
-    text: "Tarih ve saat değerlendirilir.",
+    icon: Activity,
+    title: "Sporcu Beslenmesi",
+    text: "Performans, toparlanma ve enerji dengesi odaklı yaklaşım.",
   },
   {
-    step: "3",
-    title: "Görüşme planı",
-    text: "Online veya yüz yüze görüşme netleştirilir.",
-  },
-  {
-    step: "4",
-    title: "Takip süreci",
-    text: "Danışmanlık ve ilerleme takibi başlar.",
+    icon: Salad,
+    title: "Sağlıklı Yaşam",
+    text: "Günlük hayata uyumlu, uygulanabilir beslenme düzeni.",
   },
 ];
 
-const appointmentHighlights = [
-  { Icon: CalendarCheck2, label: "Online / Yüz yüze" },
-  { Icon: ShieldCheck, label: "Admin onaylı süreç" },
+const steps = [
+  {
+    no: "01",
+    title: "Talep oluştur",
+    text: "Uygun tarih ve saat seçerek hızlıca randevu talebi bırakın.",
+  },
+  {
+    no: "02",
+    title: "Uygunluk onayı",
+    text: "Talebiniz kontrol edilir ve randevu detayınız netleştirilir.",
+  },
+  {
+    no: "03",
+    title: "Görüşmeyi başlat",
+    text: "Online veya yüz yüze görüşmeyle danışmanlık süreci başlar.",
+  },
 ];
 
-const contactCards = [
-  { Icon: Phone, title: "Telefon", text: "+90 5xx xxx xx xx" },
-  { Icon: Mail, title: "E-posta", text: "randevu@ornek.com" },
-  { Icon: MapPin, title: "Adres", text: "Bursa / Türkiye" },
+const benefits = [
+  "Bilimsel ve uygulanabilir yaklaşım",
+  "Danışanın yaşam tarzına uygun planlama",
+  "Düzenli takip ve sürdürülebilir süreç",
+  "Online ve yüz yüze esnek görüşme modeli",
 ];
 
-export default function HomePage() {
+export default function DietitianSiteLandingPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <main className="min-h-screen bg-[#f7f7f2] text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-black/5 bg-[#f7f7f2]/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-600">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-emerald-700">
               Dyt. Ayşe Bozkaya Yazgan
             </p>
-            <h1 className="text-lg font-bold text-slate-900">
-              Beslenme ve Yaşam Danışmanlığı
-            </h1>
+            <p className="mt-1 text-sm text-slate-600">Beslenme ve yaşam danışmanlığı</p>
           </div>
 
-          <nav className="hidden items-center gap-6 text-sm text-slate-600 md:flex">
-            <a href="#hakkimda" className="transition hover:text-slate-900">
-              Hakkımda
-            </a>
-            <a href="#hizmetler" className="transition hover:text-slate-900">
-              Hizmetler
-            </a>
-            <a href="#surec" className="transition hover:text-slate-900">
-              Süreç
-            </a>
-            <a href="#iletisim" className="transition hover:text-slate-900">
-              İletişim
-            </a>
+          <nav className="hidden items-center gap-7 text-sm text-slate-600 lg:flex">
+            <a href="#hakkimda" className="transition hover:text-slate-900">Hakkımda</a>
+            <a href="#hizmetler" className="transition hover:text-slate-900">Hizmetler</a>
+            <a href="#surec" className="transition hover:text-slate-900">Süreç</a>
+            <a href="#iletisim" className="transition hover:text-slate-900">İletişim</a>
           </nav>
 
           <a
             href="#randevu"
-            className="inline-flex items-center rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700"
+            className="inline-flex items-center rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
           >
             Randevu Al
           </a>
         </div>
       </header>
 
-      <section className="bg-gradient-to-br from-emerald-50 via-white to-lime-50">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
+      <section className="mx-auto max-w-7xl px-6 pb-14 pt-10 lg:pb-20 lg:pt-16">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-sm text-emerald-700 shadow-sm">
-              <HeartPulse className="h-4 w-4" /> Kişiye özel beslenme yaklaşımı
-            </p>
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-sm text-emerald-700 shadow-sm">
+              <Sparkles className="h-4 w-4" /> Kişiye özel, sade ve sürdürülebilir yaklaşım
+            </div>
 
-            <h2 className="mt-6 text-4xl font-bold leading-tight text-slate-900 md:text-5xl">
-              Sağlıklı yaşam hedeflerin için profesyonel beslenme desteği
-            </h2>
+            <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight text-slate-900 md:text-6xl">
+              Beslenme sürecinizi daha sağlıklı ve daha sürdürülebilir hale getirin.
+            </h1>
 
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-              Kilo kontrolü, sporcu beslenmesi, sürdürülebilir beslenme
-              alışkanlıkları ve yaşam tarzına uygun danışmanlık için online veya
-              yüz yüze randevu oluşturabilirsiniz.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              Kilo kontrolü, sağlıklı yaşam ve sporcu beslenmesi gibi alanlarda, yaşam temponuza uygun profesyonel danışmanlık desteği alın.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
                 href="#randevu"
-                className="inline-flex items-center justify-center rounded-2xl bg-emerald-600 px-6 py-4 font-semibold text-white transition hover:bg-emerald-700"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-6 py-4 font-medium text-white transition hover:bg-emerald-700"
               >
-                Randevu Al <ArrowRight className="ml-2 h-4 w-4" />
+                Hemen Randevu Al <ArrowRight className="ml-2 h-4 w-4" />
               </a>
               <a
-                href="#hizmetler"
-                className="inline-flex items-center justify-center rounded-2xl border border-slate-300 px-6 py-4 font-semibold text-slate-700 transition hover:bg-slate-50"
+                href="#hakkimda"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 font-medium text-slate-700 transition hover:bg-slate-50"
               >
-                Hizmetleri İncele
+                Detayları İncele
               </a>
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {heroCards.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-2xl border border-white bg-white/80 p-4 shadow-sm"
-                >
-                  <p className="font-semibold text-slate-900">{item.title}</p>
-                  <p className="mt-1 text-sm text-slate-600">{item.text}</p>
+              {stats.map((item) => (
+                <div key={item.label} className="rounded-3xl border border-black/5 bg-white p-5 shadow-sm">
+                  <p className="text-lg font-semibold text-slate-900">{item.value}</p>
+                  <p className="mt-1 text-sm text-slate-500">{item.label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="grid gap-5">
-            <div className="rounded-[28px] border border-emerald-100 bg-white p-6 shadow-xl shadow-emerald-100/50">
-              <div className="grid gap-4 sm:grid-cols-2">
-                {featureCards.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-2xl border border-slate-200 p-5"
-                  >
-                    <item.Icon className="h-6 w-6 text-emerald-600" />
-                    <h3 className="mt-3 font-semibold text-slate-900">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-slate-600">{item.text}</p>
+          <div className="relative">
+            <div className="absolute inset-0 -z-10 rounded-[36px] bg-gradient-to-br from-emerald-200/50 to-lime-100/40 blur-3xl" />
+            <div className="rounded-[36px] border border-white/70 bg-white/90 p-6 shadow-2xl shadow-slate-200/70">
+              <div className="rounded-[28px] bg-slate-900 p-7 text-white">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.24em] text-emerald-300">Danışmanlık süreci</p>
+                    <h2 className="mt-3 text-2xl font-semibold leading-tight">
+                      Basit, güvenli ve planlı randevu deneyimi
+                    </h2>
                   </div>
-                ))}
-              </div>
-            </div>
+                  <HeartPulse className="h-10 w-10 text-emerald-300" />
+                </div>
 
-            <div className="rounded-[28px] bg-slate-900 p-6 text-white shadow-xl">
-              <p className="text-sm text-emerald-300">İlk görüşme süreci</p>
-              <ul className="mt-4 grid gap-3 text-sm text-slate-200">
-                {firstMeetingSteps.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-emerald-400" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+                <div className="mt-6 grid gap-3">
+                  {benefits.map((item) => (
+                    <div key={item} className="flex items-start gap-3 rounded-2xl bg-white/5 px-4 py-4">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 text-emerald-300" />
+                      <span className="text-sm text-slate-200">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="hakkimda" className="mx-auto max-w-7xl px-6 py-20">
-        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div className="rounded-[32px] bg-emerald-50 p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-              Hakkımda
-            </p>
-            <h3 className="mt-4 text-3xl font-bold text-slate-900">
-              Bilimsel temelli, sürdürülebilir ve kişiye özel yaklaşım
+      <section id="hakkimda" className="mx-auto max-w-7xl px-6 py-10 lg:py-16">
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="rounded-[32px] bg-[#e8f5ee] p-8 lg:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700">Hakkımda</p>
+            <h3 className="mt-4 text-3xl font-semibold leading-tight text-slate-900">
+              Bilimsel, sakin ve gerçek hayatla uyumlu bir beslenme yaklaşımı
             </h3>
-            <p className="mt-4 leading-8 text-slate-600">
-              Danışanların yaşam tarzını, hedeflerini ve günlük rutinlerini
-              dikkate alarak uygulanabilir beslenme planları oluşturuyorum. Amaç
-              yalnızca kısa süreli sonuç değil, kalıcı ve sağlıklı alışkanlıklar
-              kazandırmaktır.
+            <p className="mt-5 leading-8 text-slate-600">
+              Danışanların yaşam düzenini, hedeflerini ve sürdürülebilirlik ihtiyacını merkeze alarak ilerliyorum. Amaç; kısa süreli motivasyon değil, uzun vadeli ve uygulanabilir alışkanlıklar oluşturmaktır.
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {aboutCards.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-slate-200 p-6 shadow-sm"
-              >
-                <h4 className="font-semibold text-slate-900">{item.title}</h4>
-                <p className="mt-2 text-sm leading-7 text-slate-600">
-                  {item.text}
-                </p>
+            {[
+              {
+                title: "Bireysel değerlendirme",
+                text: "Her danışan için ihtiyaç ve hedef odaklı özel planlama yapılır.",
+              },
+              {
+                title: "Takip süreci",
+                text: "Plan düzenli aralıklarla değerlendirilir ve güncellenir.",
+              },
+              {
+                title: "Esnek görüşme modeli",
+                text: "Online ve yüz yüze seçeneklerle sürece kolay uyum sağlanır.",
+              },
+              {
+                title: "Uygulanabilir sistem",
+                text: "Günlük yaşamda sürdürülebilir, gerçekçi ve sade çözümler sunulur.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="rounded-[28px] border border-black/5 bg-white p-6 shadow-sm">
+                <h4 className="text-lg font-semibold text-slate-900">{item.title}</h4>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="hizmetler" className="bg-slate-50">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-              Hizmetler
-            </p>
-            <h3 className="mt-4 text-3xl font-bold text-slate-900">
-              Size uygun danışmanlık başlıkları
-            </h3>
-          </div>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {services.map((item) => (
-              <div
-                key={item}
-                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <ShieldCheck className="h-6 w-6 text-emerald-600" />
-                <p className="mt-4 font-semibold text-slate-900">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="surec" className="mx-auto max-w-7xl px-6 py-20">
-        <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-            Süreç
-          </p>
-          <h3 className="mt-4 text-3xl font-bold text-slate-900">
-            Randevu ve danışmanlık süreci nasıl ilerler?
-          </h3>
+      <section id="hizmetler" className="mx-auto max-w-7xl px-6 py-10 lg:py-16">
+        <div className="flex flex-col gap-3">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700">Hizmetler</p>
+          <h3 className="text-3xl font-semibold text-slate-900">İhtiyacınıza uygun danışmanlık alanları</h3>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {processSteps.map((item) => (
-            <div
-              key={item.step}
-              className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 font-bold text-emerald-700">
-                {item.step}
+        <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {services.map((item) => (
+            <div key={item.title} className="group rounded-[30px] border border-black/5 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <div className="inline-flex rounded-2xl bg-emerald-50 p-3 text-emerald-700">
+                <item.icon className="h-6 w-6" />
               </div>
-              <h4 className="mt-5 text-lg font-semibold text-slate-900">
-                {item.title}
-              </h4>
-              <p className="mt-2 text-sm leading-7 text-slate-600">
-                {item.text}
-              </p>
+              <h4 className="mt-5 text-xl font-semibold text-slate-900">{item.title}</h4>
+              <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+              <div className="mt-6 inline-flex items-center text-sm font-medium text-emerald-700">
+                Detaylı incele <ChevronRight className="ml-1 h-4 w-4" />
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section
-        id="randevu"
-        className="bg-gradient-to-br from-emerald-600 to-emerald-700 text-white"
-      >
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-100">
-              Randevu Al
-            </p>
-            <h3 className="mt-4 text-3xl font-bold md:text-4xl">
-              Hemen randevu talebi oluşturun
+      <section id="surec" className="bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-10 lg:py-16">
+          <div className="flex flex-col gap-3">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700">Süreç</p>
+            <h3 className="text-3xl font-semibold text-slate-900">Randevu süreci nasıl ilerler?</h3>
+          </div>
+
+          <div className="mt-8 grid gap-5 lg:grid-cols-3">
+            {steps.map((item) => (
+              <div key={item.no} className="rounded-[30px] border border-black/5 bg-[#fafaf7] p-7 shadow-sm">
+                <p className="text-sm font-semibold tracking-[0.2em] text-emerald-700">{item.no}</p>
+                <h4 className="mt-4 text-xl font-semibold text-slate-900">{item.title}</h4>
+                <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="randevu" className="mx-auto max-w-7xl px-6 py-10 lg:py-16">
+        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <div className="rounded-[34px] bg-slate-900 p-8 text-white lg:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-300">Randevu Al</p>
+            <h3 className="mt-4 text-3xl font-semibold leading-tight">
+              Hemen talebinizi oluşturun, uygun görüşme planınızı birlikte netleştirelim.
             </h3>
-            <p className="mt-4 max-w-xl leading-8 text-emerald-50">
-              Online veya yüz yüze görüşme için uygun tarih ve saatinizi seçin.
-              Talebiniz admin paneline düşer ve onay sonrası randevunuz
-              planlanır.
+            <p className="mt-5 leading-8 text-slate-300">
+              Online veya yüz yüze görüşme seçeneğiyle, size uygun tarih ve saat için hızlıca talep oluşturabilirsiniz. Talebiniz admin paneline düşer ve onay sonrası randevunuz planlanır.
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {appointmentHighlights.map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm"
-                >
-                  <item.Icon className="h-5 w-5 text-white" />
-                  <p className="mt-3 font-medium">{item.label}</p>
+            <div className="mt-8 grid gap-4">
+              {[
+                { Icon: CalendarCheck2, label: "Online ve yüz yüze görüşme seçeneği" },
+                { Icon: ShieldCheck, label: "Admin onaylı ve kontrollü randevu süreci" },
+              ].map((item) => (
+                <div key={item.label} className="flex items-start gap-3 rounded-2xl bg-white/5 px-4 py-4">
+                  <item.Icon className="mt-0.5 h-5 w-5 text-emerald-300" />
+                  <span className="text-sm text-slate-200">{item.label}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="rounded-[32px] bg-white p-3 shadow-2xl">
+          <div className="rounded-[34px] border border-black/5 bg-white p-3 shadow-2xl shadow-slate-200/70">
             <AppointmentRequestForm />
           </div>
         </div>
       </section>
 
-      <section id="iletisim" className="mx-auto max-w-7xl px-6 py-20">
-        <div className="grid gap-6 lg:grid-cols-3">
-          {contactCards.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-            >
-              <item.Icon className="h-6 w-6 text-emerald-600" />
-              <h4 className="mt-4 font-semibold text-slate-900">
-                {item.title}
-              </h4>
+      <section id="iletisim" className="mx-auto max-w-7xl px-6 py-10 lg:py-16">
+        <div className="grid gap-5 lg:grid-cols-3">
+          {[
+            { Icon: Phone, title: "Telefon", text: "+90 5xx xxx xx xx" },
+            { Icon: Mail, title: "E-posta", text: "randevu@ornek.com" },
+            { Icon: MapPin, title: "Adres", text: "Bursa / Türkiye" },
+          ].map((item) => (
+            <div key={item.title} className="rounded-[28px] border border-black/5 bg-white p-7 shadow-sm">
+              <item.Icon className="h-6 w-6 text-emerald-700" />
+              <h4 className="mt-4 text-lg font-semibold text-slate-900">{item.title}</h4>
               <p className="mt-2 text-slate-600">{item.text}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <footer className="border-t border-slate-200 bg-white">
+      <footer className="border-t border-black/5 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 Dyt. Ayşe Bozkaya Yazgan — Tüm hakları saklidır.</p>
-          <a
-            href="#randevu"
-            className="font-medium text-emerald-700 hover:text-emerald-800"
-          >
+          <p>© 2026 Dyt. Ayşe Bozkaya Yazgan — Tüm hakları saklıdır.</p>
+          <a href="#randevu" className="font-medium text-emerald-700 transition hover:text-emerald-800">
             Randevu Al
           </a>
         </div>
